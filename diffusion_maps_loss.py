@@ -1,3 +1,10 @@
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import torchvision
+import torchvision.transforms as transforms
+
+
 def diffusion_maps_loss(z, args):
     epsilon = 0.35 # hyperparameter
     with torch.no_grad():
