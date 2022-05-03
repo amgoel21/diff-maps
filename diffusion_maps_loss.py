@@ -1,5 +1,5 @@
 def diffusion_maps_loss(z, args):
-    epsilon = 0.35
+    epsilon = 0.35 # hyperparameter
     with torch.no_grad():
         znew = z.unsqueeze(0)
         k = torch.exp(-torch.cdist(znew, znew, p=2) ** 2 / epsilon).squeeze(0)   # kernel
@@ -16,7 +16,7 @@ def diffusion_maps_loss(z, args):
         m.fill_diagonal_(1)
 
         #w, v = torch.linalg.eigh(m)
-        w,v = torch.lobpcg(-m,10) # smallest
+        w,v = torch.lobpcg(-m,10) # smallest 10 valyes
         print(w)
         embedding = v[:,1:args[1] + 1] * sq_dalpha.T
     return embedding
