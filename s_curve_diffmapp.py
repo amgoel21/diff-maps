@@ -45,4 +45,4 @@ if __name__ == '__main__':
     data=convertdata(X)
     embedding = diffusion_maps_loss(data,[1,20])
     plt.scatter(embedding[:,0],embedding[:,1], c=np.concatenate([Y],axis=0))
-plt.show()
+    plt.show()
